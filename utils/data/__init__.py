@@ -16,9 +16,7 @@ __all__ = []
 # Import submodules and expose their public interfaces
 from .download import *
 from .download import __all__ as download_all
-from .uwmgi import *
-from .uwmgi import __all__ as uwmgi_all
 
 # Update the module's __all__ to include submodules' public interfaces
 __all__.extend(download_all)
-__all__.extend(uwmgi_all)
+
