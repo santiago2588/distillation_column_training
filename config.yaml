@@ -1,0 +1,5 @@
+projectFolder: C:/Users/mjkipsz2/OneDrive - The University of Manchester/Desktop/distillation_colum_yield/
+rawDataFile: data/raw_data.csv
+cleanDataFile: data/clean_data.csv
+transformedDataFile: data/transformed_data.csv
+normalizedDataFile: data/transformed_normalized_data.csv
