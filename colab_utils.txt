@@ -1,9 +1,0 @@
-https://raw.githubusercontent.com/santiago2588/distillation_column_training/main/utils/__init__.py
-https://raw.githubusercontent.com/santiago2588/distillation_column_training/main/utils/__version__.py
-https://raw.githubusercontent.com/santiago2588/distillation_column_training/main/utils/core.py
-https://raw.githubusercontent.com/santiago2588/distillation_column_training/utils/quizzes.json
-https://raw.githubusercontent.com/santiago2588/distillation_column_training/main/utils/solutions.json
-https://raw.githubusercontent.com/santiago2588/distillation_column_training/main/utils/data/__init__.py
-https://raw.githubusercontent.com/santiago2588/distillation_column_training/main/utils/data/datasets.json
-https://raw.githubusercontent.comsantiago2588/distillation_column_training/main/utils/data/download.py
-https://raw.githubusercontent.comsantiago2588/distillation_column_training/main/utils/data/uwmgi.py
