@@ -58,7 +58,7 @@ with st.sidebar:
 
 # --- Main Page Content ---
 st.title("🧪 Distillation Column Yield Predictor")
-st.image('Figuras/column.jpg', caption='A typical industrial distillation column.')
+#st.image('Figuras/column.jpg', caption='A typical industrial distillation column.')
 
 st.markdown("""
 Welcome to the Distillation Yield Predictor! This application uses a machine learning model to forecast the production yield of a chemical product from a distillation column based on key operational parameters.
