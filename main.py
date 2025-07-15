@@ -72,8 +72,6 @@ Distillation is a widely used industrial process to separate liquid mixtures bas
 - **Troubleshoot** potential issues by simulating different scenarios.
 """)
 
-st.divider()
-
 # --- Prediction Logic ---
 if model is not None:
     if st.button('🚀 Predict Yield', type="primary"):
