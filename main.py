@@ -72,22 +72,6 @@ Distillation is a widely used industrial process to separate liquid mixtures bas
 - **Troubleshoot** potential issues by simulating different scenarios.
 """)
 
-# --- Explainer Section ---
-with st.expander("ℹ️ About the Application"):
-    st.markdown("""
-    **How does it work?**
-
-    1.  **Input Data:** You provide the key operational parameters (flowrate, temperature, and pressure) using the sliders in the sidebar.
-    2.  **Prediction:** The pre-trained machine learning model receives these inputs. It analyzes them based on the patterns learned from historical data to calculate the expected yield.
-    3.  **Output:** The app displays the final predicted yield as a percentage, giving you an estimate of the column's efficiency under the specified conditions.
-
-    **Model Details:**
-
-    * **Model Type:** `Regression Model` (likely from the scikit-learn library)
-    * **Purpose:** To predict the continuous value of the distillation yield.
-    * **Features Used:** Feed Flowrate, Reboiler Temperature, and Pressure Difference.
-    """)
-
 st.divider()
 
 # --- Prediction Logic ---
@@ -108,3 +92,21 @@ if model is not None:
             st.error(f"An error occurred during prediction: {e}")
 else:
     st.warning("Model could not be loaded. Please check the model file path.")
+
+st.divider()
+
+# --- Explainer Section ---
+with st.expander("ℹ️ About the Application"):
+    st.markdown("""
+    **How does it work?**
+
+    1.  **Input Data:** You provide the key operational parameters (flowrate, temperature, and pressure) using the sliders in the sidebar.
+    2.  **Prediction:** The pre-trained machine learning model receives these inputs. It analyzes them based on the patterns learned from historical data to calculate the expected yield.
+    3.  **Output:** The app displays the final predicted yield as a percentage, giving you an estimate of the column's efficiency under the specified conditions.
+
+    **Model Details:**
+
+    * **Model Type:** `Regression Model` (XGBoost)
+    * **Purpose:** To predict the continuous value of the distillation yield.
+    * **Features Used:** Feed Flowrate, Reboiler Temperature, and Pressure Difference.
+    """)
