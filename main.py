@@ -10,8 +10,6 @@ st.set_page_config(
 )
 
 # --- Model Loading ---
-# Load the pre-trained model from the file.
-# This is done once when the app starts to be efficient.
 @st.cache_resource
 def load_model(model_path):
     """Loads the trained model from a joblib file."""
@@ -31,7 +29,6 @@ with st.sidebar:
     Adjust the sliders to match the operational parameters of the distillation column.
     """)
 
-    # Input sliders with more context
     flowrate = st.slider(
         label='Feed Flowrate (m³/s)',
         min_value=100,
@@ -61,7 +58,7 @@ with st.sidebar:
 
 # --- Main Page Content ---
 st.title("🧪 Distillation Column Yield Predictor")
-#st.image('Figuras/column.jpg', caption='A typical industrial distillation column.')
+st.image('Figuras/column.jpg', caption='A typical industrial distillation column.')
 
 st.markdown("""
 Welcome to the Distillation Yield Predictor! This application uses a machine learning model to forecast the production yield of a chemical product from a distillation column based on key operational parameters.
@@ -75,24 +72,35 @@ Distillation is a widely used industrial process to separate liquid mixtures bas
 - **Troubleshoot** potential issues by simulating different scenarios.
 """)
 
+# --- Explainer Section ---
+with st.expander("ℹ️ About the Application"):
+    st.markdown("""
+    **How does it work?**
+
+    1.  **Input Data:** You provide the key operational parameters (flowrate, temperature, and pressure) using the sliders in the sidebar.
+    2.  **Prediction:** The pre-trained machine learning model receives these inputs. It analyzes them based on the patterns learned from historical data to calculate the expected yield.
+    3.  **Output:** The app displays the final predicted yield as a percentage, giving you an estimate of the column's efficiency under the specified conditions.
+
+    **Model Details:**
+
+    * **Model Type:** `Regression Model` (likely from the scikit-learn library)
+    * **Purpose:** To predict the continuous value of the distillation yield.
+    * **Features Used:** Feed Flowrate, Reboiler Temperature, and Pressure Difference.
+    """)
+
 st.divider()
 
 # --- Prediction Logic ---
 if model is not None:
-    # Button to trigger the prediction
     if st.button('🚀 Predict Yield', type="primary"):
-        # Create a DataFrame for the model input
-        # The column names must exactly match those used during model training.
         df_input = pd.DataFrame({
             'PressureC1_diff': [pressure],
             'FlowC1': [flowrate],
             'Temp1': [temperature]
         })
 
-        # Make the prediction
         try:
             prediction_value = model.predict(df_input)
-            # Display the result in a formatted and clear way
             st.subheader("📈 Predicted Result")
             st.success(f"**Predicted Yield:** `{prediction_value[0]:.2f}%`")
             st.info("This value represents the estimated percentage of the desired product that will be recovered from the feed mixture under the specified conditions.")
